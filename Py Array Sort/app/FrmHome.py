@@ -4,9 +4,17 @@
 #
 # Created by: PyQt5 UI code generator 5.5
 #
-# WARNING! All changes made in this file will be lost!
+# Formulário principal, responsável pela ordenação dos arrays
+#
+
+# Py Array Sort / app / FrmHome
+# @author MRX
+# Version : 1.0.0
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from app.FrmSobre import Ui_FrmSobre
+from app.FrmMetodosOrdenacao import Ui_FrmMetodosOrdenacao
+from PyQt5.QtWidgets import QMessageBox
 
 class Ui_FrmHome(object):
     def setupUi(self, FrmHome):
@@ -144,6 +152,13 @@ class Ui_FrmHome(object):
         self.retranslateUi(FrmHome)
         QtCore.QMetaObject.connectSlotsByName(FrmHome)
 
+        #Menu principal
+        self.actionM_todos_de_Ordena_o.triggered.connect(self.abrirMetodosOrdenacao)
+        self.actionSobre.triggered.connect(self.abrirSobre)
+        #abrir manual
+        self.actionSair.triggered.connect(self.sair)
+
+
     def retranslateUi(self, FrmHome):
         _translate = QtCore.QCoreApplication.translate
         FrmHome.setWindowTitle(_translate("FrmHome", "Py Array Sort 1.0.0"))
@@ -167,6 +182,32 @@ class Ui_FrmHome(object):
         self.actionSobre.setText(_translate("FrmHome", "Sobre"))
         self.actionManual.setText(_translate("FrmHome", "Manual"))
 
+    def abrirMetodosOrdenacao(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_FrmMetodosOrdenacao()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def abrirSobre(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_FrmSobre()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def sair(self):
+        msg = QMessageBox()
+        msg.setStyleSheet("background-color: rgb(0, 170, 255);")
+        msg.setWindowTitle("Sair?")
+        msg.setText("Deseja sair do Py Array Sort?")
+        msg.setIcon(QMessageBox.Question)
+
+        btnOptionA = msg.addButton("Sim", QMessageBox.YesRole)
+        btnOptionB = msg.addButton("Não", QMessageBox.NoRole)
+
+        msg.exec_()
+
+        if msg.clickedButton() == btnOptionA:
+            sys.exit(0)
 
 if __name__ == "__main__":
     import sys
@@ -174,6 +215,10 @@ if __name__ == "__main__":
     FrmHome = QtWidgets.QMainWindow()
     ui = Ui_FrmHome()
     ui.setupUi(FrmHome)
+
+    FrmHome.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+    FrmHome.setFixedSize(1000, 553)
+
     FrmHome.show()
     sys.exit(app.exec_())
 
