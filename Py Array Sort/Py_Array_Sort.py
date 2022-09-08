@@ -55,11 +55,11 @@ class Ui_FrmSplash(object):
         self.lblLoading.setText(_translate("FrmSplash", "<html><head/><body><p><span style=\" font-size:10pt; color:#ffffff;\">Carregando...</span></p></body></html>"))
 
     def loading(self):
-        for i in range(100):
+        for i in range(50):
             time.sleep(0.1)
             self.progressBar.setValue(i)
             #Carregamento concluido
-            if i == 99:
+            if i == 49:
                 self.timer.stop()
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_FrmHome()

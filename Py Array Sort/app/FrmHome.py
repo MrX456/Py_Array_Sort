@@ -17,10 +17,12 @@ from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QFont
 from sort.BubbleSort import Bubblesort
 from sort.ShellSort import Shellsort
+import os
 
 class Ui_FrmHome(object):
 
     array = []
+
     def setupUi(self, FrmHome):
         FrmHome.setObjectName("FrmHome")
         FrmHome.resize(1000, 553)
@@ -156,17 +158,18 @@ class Ui_FrmHome(object):
         self.retranslateUi(FrmHome)
         QtCore.QMetaObject.connectSlotsByName(FrmHome)
 
+        #Region - My Code
+
         self.lblArrayElements.setText("")
         self.lblArrayElementsOrdenado.setText("")
 
         #Menu principal
         self.actionM_todos_de_Ordena_o.triggered.connect(self.abrirMetodosOrdenacao)
         self.actionSobre.triggered.connect(self.abrirSobre)
-        #abrir manual******************************************************************************************mude cor do botao ao destivar
+        self.actionManual.triggered.connect(self.abrirManual)
         self.actionSair.triggered.connect(self.sair)
 
         #Combobox itens
-        #self.cboMetodosOrdenacao.setEnabled(True)
         self.cboMetodosOrdenacao.addItem("Sort[Python]")
         self.cboMetodosOrdenacao.addItem("Bubble Sort")
         self.cboMetodosOrdenacao.addItem("Shell Sort")
@@ -178,6 +181,8 @@ class Ui_FrmHome(object):
         self.btnLimpar.clicked.connect(self.setDefaultState)
 
         self.txtNumero.textChanged.connect(self.isNumber)
+
+        #Endregion
 
     def retranslateUi(self, FrmHome):
         _translate = QtCore.QCoreApplication.translate
@@ -208,6 +213,8 @@ class Ui_FrmHome(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_FrmMetodosOrdenacao()
         self.ui.setupUi(self.window)
+        self.window.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+        self.window.setFixedSize(597, 386)
         self.window.show()
 
     def abrirSobre(self):
@@ -220,6 +227,19 @@ class Ui_FrmHome(object):
         #Message Box com detalhes
         msg.setDetailedText("Versão : 1.0.0" + "\n" + "Versão do Python : 3.4.3" + "\n" + "Versão do PyQt : 5.5.0" + "\n" + "Desenvolvido por : MrX")
         msg.exec_()
+
+    def abrirManual(self):
+        path = "manual.pdf"
+
+        if os.path.exists(path):
+            os.system(path)
+        else:
+            msg = QMessageBox()
+            msg.setStyleSheet("background-color: rgb(0, 170, 255);")
+            msg.setWindowTitle("Erro")
+            msg.setText("Arquivo não encontrado. Reinstale o Py Array Sort Novamente!")
+            msg.setIcon(QMessageBox.Critical)
+            msg.exec_()
 
     def sair(self):
         msg = QMessageBox()
@@ -237,6 +257,8 @@ class Ui_FrmHome(object):
             sys.exit(0)
 
     #Endregion
+
+    #Region - Meus métodos
 
     def addItemToArray(self):
          if self.txtNumero.text() != "":
@@ -287,7 +309,7 @@ class Ui_FrmHome(object):
 
         self.lblArrayElementsOrdenado.setText("")
 
-        #Deevemos certificar que valores sejam inteiros
+        #Devemos certificar que valores sejam inteiros
         auxArray = []
 
         for item in self.array:
@@ -331,7 +353,7 @@ class Ui_FrmHome(object):
 
     def isNumber(self):
         try:
-            number = int(self.txtNumero.text())
+            int(self.txtNumero.text())
         except Exception:
             self.txtNumero.setText("")
 
@@ -349,6 +371,8 @@ class Ui_FrmHome(object):
         self.btnOrdenar.setStyleSheet("background-color: rgb(180, 180, 180);\n""color: rgb(0, 170, 255);")
         self.lblArrayElements.setText("")
         self.lblArrayElementsOrdenado.setText("")
+
+    #Endregion
 
 if __name__ == "__main__":
     import sys
