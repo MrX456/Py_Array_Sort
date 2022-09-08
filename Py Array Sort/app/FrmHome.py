@@ -15,8 +15,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from app.FrmSobre import Ui_FrmSobre
 from app.FrmMetodosOrdenacao import Ui_FrmMetodosOrdenacao
 from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtGui import QFont
+from sort.BubbleSort import Bubblesort
+from sort.ShellSort import Shellsort
 
 class Ui_FrmHome(object):
+
+    array = []
+
     def setupUi(self, FrmHome):
         FrmHome.setObjectName("FrmHome")
         FrmHome.resize(1000, 553)
@@ -76,11 +82,11 @@ class Ui_FrmHome(object):
         font.setPointSize(12)
         self.btnOrdenar.setFont(font)
         self.btnOrdenar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btnOrdenar.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.btnOrdenar.setStyleSheet("background-color: rgb(180, 180, 180);\n"
 "color: rgb(0, 170, 255);")
         self.btnOrdenar.setObjectName("btnOrdenar")
         self.btnLimpar = QtWidgets.QPushButton(self.frameElementos)
-        self.btnLimpar.setGeometry(QtCore.QRect(250, 200, 91, 31))
+        self.btnLimpar.setGeometry(QtCore.QRect(250, 200, 81, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.btnLimpar.setFont(font)
@@ -89,7 +95,7 @@ class Ui_FrmHome(object):
 "color: rgb(255, 0, 255);")
         self.btnLimpar.setObjectName("btnLimpar")
         self.btnPronto = QtWidgets.QPushButton(self.frameElementos)
-        self.btnPronto.setGeometry(QtCore.QRect(200, 90, 91, 31))
+        self.btnPronto.setGeometry(QtCore.QRect(180, 90, 91, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.btnPronto.setFont(font)
@@ -152,12 +158,28 @@ class Ui_FrmHome(object):
         self.retranslateUi(FrmHome)
         QtCore.QMetaObject.connectSlotsByName(FrmHome)
 
+        self.lblArrayElements.setText("")
+        self.lblArrayElementsOrdenado.setText("")
+
         #Menu principal
         self.actionM_todos_de_Ordena_o.triggered.connect(self.abrirMetodosOrdenacao)
         self.actionSobre.triggered.connect(self.abrirSobre)
-        #abrir manual
+        #abrir manual******************************************************************************************mude cor do botao ao destivar
         self.actionSair.triggered.connect(self.sair)
 
+        #Combobox itens
+        #self.cboMetodosOrdenacao.setEnabled(True)
+        self.cboMetodosOrdenacao.addItem("Sort[Python]")
+        self.cboMetodosOrdenacao.addItem("Bubble Sort")
+        self.cboMetodosOrdenacao.addItem("Shell Sort")
+        self.cboMetodosOrdenacao.addItem("Não Está Ordenado")
+
+        self.btnAdd.clicked.connect(self.addItemToArray)
+        self.btnPronto.clicked.connect(self.fecharArray)
+        self.btnOrdenar.clicked.connect(self.ordenarArray)
+        self.btnLimpar.clicked.connect(self.setDefaultState)
+
+        self.txtNumero.textChanged.connect(self.isNumber)
 
     def retranslateUi(self, FrmHome):
         _translate = QtCore.QCoreApplication.translate
@@ -181,6 +203,8 @@ class Ui_FrmHome(object):
         self.actionM_todos_de_Ordena_o.setText(_translate("FrmHome", "Métodos de Ordenação"))
         self.actionSobre.setText(_translate("FrmHome", "Sobre"))
         self.actionManual.setText(_translate("FrmHome", "Manual"))
+
+    #Region - Menu principal
 
     def abrirMetodosOrdenacao(self):
         self.window = QtWidgets.QMainWindow()
@@ -208,6 +232,115 @@ class Ui_FrmHome(object):
 
         if msg.clickedButton() == btnOptionA:
             sys.exit(0)
+
+    #Endregion
+
+    def addItemToArray(self):
+         if self.txtNumero.text() != "":
+
+            if len(self.array) < 3: #tamanho máximo 10 itens
+
+                self.array.append(self.txtNumero.text())
+
+                self.lblArrayElements.setFont(QFont('Arial', 12,))
+                self.lblArrayElements.setStyleSheet("font-weight: bold")
+
+                if(self.lblArrayElements.text() == ""):
+                    self.lblArrayElements.setText(self.txtNumero.text())
+                else:
+                    self.lblArrayElements.setText(self.lblArrayElements.text() + ", " + self.txtNumero.text())
+
+            else:
+                msg = QMessageBox()
+                msg.setStyleSheet("background-color: rgb(0, 170, 255);")
+                msg.setWindowTitle("Mensagem")
+                msg.setText("Impossivel adicionar elemento! O array não pode ter mais de 10 elementos!")
+                msg.setIcon(QMessageBox.Information)
+                msg.exec_()
+
+            self.txtNumero.setText("")
+            self.txtNumero.setFocus()
+
+    def fecharArray(self):
+        if len(self.array) > 0:
+            self.txtNumero.setEnabled(False)
+            self.txtNumero.setText("")
+            self.btnAdd.setEnabled(False)
+            self.btnAdd.setStyleSheet("background-color: rgb(180, 180, 180);\n""color: rgb(0, 170, 255);")
+            self.btnPronto.setEnabled(False)
+            self.btnPronto.setStyleSheet("background-color: rgb(180, 180, 180);\n""color: rgb(0, 170, 255);")
+            self.cboMetodosOrdenacao.setEnabled(True)
+            self.btnOrdenar.setEnabled(True)
+            self.btnOrdenar.setStyleSheet("background-color: rgb(255, 255, 255);\n""color: rgb(0, 170, 255);")
+        else:
+             msg = QMessageBox()
+             msg.setStyleSheet("background-color: rgb(0, 170, 255);")
+             msg.setWindowTitle("Mensagem")
+             msg.setText("Não existem elementos no array!")
+             msg.setIcon(QMessageBox.Information)
+             msg.exec_()
+
+    def ordenarArray(self):
+
+        self.lblArrayElementsOrdenado.setText("")
+
+        auxArray = list(self.array) #copiar array original para auxiliar para manter original inalterado
+
+        print("Array original")
+        print(auxArray)
+
+        if self.cboMetodosOrdenacao.currentText() == "Sort[Python]":
+            auxArray.sort() #ordenar array auxliar
+            print(self.cboMetodosOrdenacao.currentText())
+            print(auxArray)
+
+        elif self.cboMetodosOrdenacao.currentText() == "Bubble Sort":
+            bubblesort = Bubblesort()
+            bubblesort.sort(auxArray)
+            print(self.cboMetodosOrdenacao.currentText())
+            print(auxArray)
+
+        elif self.cboMetodosOrdenacao.currentText() == "Shell Sort":
+            shellsort = Shellsort()
+            print(self.cboMetodosOrdenacao.currentText())
+            shellsort.sort(auxArray)
+            print(auxArray)
+
+        elif self.cboMetodosOrdenacao.currentText() == "Não Está Ordenado":
+            pass
+
+        self.lblArrayOrdenado.setFont(QFont('Arial', 12,))
+        self.lblArrayOrdenado.setText("Array Ordenado com " + self.cboMetodosOrdenacao.currentText() + ":")
+
+        self.lblArrayElementsOrdenado.setFont(QFont('Arial', 12,))
+        self.lblArrayElementsOrdenado.setStyleSheet("font-weight: bold")
+
+        for item in auxArray:
+            if self.lblArrayElementsOrdenado.text() == "":
+                self.lblArrayElementsOrdenado.setText(item)
+            else:
+                self.lblArrayElementsOrdenado.setText(self.lblArrayElementsOrdenado.text() + ", " + item)
+
+    def isNumber(self):
+        try:
+            number = int(self.txtNumero.text())
+        except Exception:
+            self.txtNumero.setText("")
+
+    def setDefaultState(self):
+        self.array.clear() #limpar array
+        #ui
+        self.txtNumero.setEnabled(True)
+        self.txtNumero.setFocus()
+        self.btnAdd.setEnabled(True)
+        self.btnAdd.setStyleSheet("background-color: rgb(255, 255, 255);\n""color: rgb(0, 170, 255);")
+        self.btnPronto.setEnabled(True)
+        self.btnPronto.setStyleSheet("background-color: rgb(255, 255, 255);\n""color: rgb(0, 170, 255);")
+        self.cboMetodosOrdenacao.setEnabled(False)
+        self.btnOrdenar.setEnabled(False)
+        self.btnOrdenar.setStyleSheet("background-color: rgb(180, 180, 180);\n""color: rgb(0, 170, 255);")
+        self.lblArrayElements.setText("")
+        self.lblArrayElementsOrdenado.setText("")
 
 if __name__ == "__main__":
     import sys

@@ -64,6 +64,8 @@ class Ui_FrmSplash(object):
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_FrmHome()
                 self.ui.setupUi(self.window)
+                self.window.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+                self.window.setFixedSize(1000, 553)
                 self.window.show()
                 FrmSplash.close()
 
