@@ -36,6 +36,7 @@
         <option value="$PROJECT_DIR$/Py_Array_Sort.py" />
         <option value="$PROJECT_DIR$/sort/BubbleSort.py" />
         <option value="$PROJECT_DIR$/sort/ShellSort.py" />
+        <option value="$PROJECT_DIR$/app/FrmSobre.py" />
         <option value="$PROJECT_DIR$/app/FrmHome.py" />
       </list>
     </option>
@@ -159,6 +160,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Py Array Sort" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sort/ShellSort.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="FrmSobre" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Py Array Sort" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/FrmSobre.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -323,18 +342,20 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.FrmHome" />
       <item index="1" class="java.lang.String" itemvalue="Python.Py_Array_Sort" />
       <item index="2" class="java.lang.String" itemvalue="Python.FrmSair" />
       <item index="3" class="java.lang.String" itemvalue="Python.BubbleSort" />
       <item index="4" class="java.lang.String" itemvalue="Python.ShellSort" />
+      <item index="5" class="java.lang.String" itemvalue="Python.FrmSobre" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.ShellSort" />
-        <item index="1" class="java.lang.String" itemvalue="Python.BubbleSort" />
-        <item index="2" class="java.lang.String" itemvalue="Python.FrmSair" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.FrmSobre" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ShellSort" />
+        <item index="2" class="java.lang.String" itemvalue="Python.BubbleSort" />
+        <item index="3" class="java.lang.String" itemvalue="Python.FrmSair" />
       </list>
     </recent_temporary>
   </component>
@@ -389,46 +410,55 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="292" column="23" selection-start="14646" selection-end="14646" vertical-scroll-proportion="0.0" vertical-offset="4879" max-vertical-offset="6137">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="6239">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Py_Array_Sort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="0" selection-start="2882" selection-end="2882" vertical-scroll-proportion="0.0" vertical-offset="938" max-vertical-offset="1513" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="232" column="53" selection-start="11795" selection-end="11795" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4556">
-          <folding>
-            <element signature="e#267#309#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="159" column="52" selection-start="8317" selection-end="8317" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="3723">
-          <folding>
-            <element signature="e#267#309#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="406" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="3706">
-          <folding>
-            <element signature="e#267#309#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="34" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3706">
-          <folding>
-            <element signature="e#267#309#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3638">
-          <folding>
-            <element signature="e#267#309#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -442,47 +472,32 @@
         <state line="262" column="4" selection-start="8352" selection-end="8352" vertical-scroll-proportion="0.0" vertical-offset="4389" max-vertical-offset="5610" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/FrmSobre.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/FrmMetodosOrdenacao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.819398" vertical-offset="490" max-vertical-offset="1190">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.819398" vertical-offset="490" max-vertical-offset="1190" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sort/BubbleSort.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sort/ShellSort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="751" selection-end="751" vertical-scroll-proportion="0.8903437" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Py_Array_Sort.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="25" selection-start="3057" selection-end="3057" vertical-scroll-proportion="1.1421405" vertical-offset="558" max-vertical-offset="1462">
+        <state line="70" column="0" selection-start="2882" selection-end="2882" vertical-scroll-proportion="1.9899665" vertical-offset="0" max-vertical-offset="1513" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sort/ShellSort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="751" selection-end="751" vertical-scroll-proportion="1.2294264" vertical-offset="51" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/FrmHome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="27" selection-start="14726" selection-end="14726" vertical-scroll-proportion="8.528428" vertical-offset="0" max-vertical-offset="6171">
-          <folding>
-            <element signature="e#267#309#0" expanded="true" />
-          </folding>
+        <state line="312" column="57" selection-start="15286" selection-end="15286" vertical-scroll-proportion="-0.043814432" vertical-offset="5236" max-vertical-offset="6222">
+          <folding />
         </state>
       </provider>
     </entry>

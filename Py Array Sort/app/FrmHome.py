@@ -12,7 +12,6 @@
 # Version : 1.0.0
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from app.FrmSobre import Ui_FrmSobre
 from app.FrmMetodosOrdenacao import Ui_FrmMetodosOrdenacao
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QFont
@@ -22,7 +21,6 @@ from sort.ShellSort import Shellsort
 class Ui_FrmHome(object):
 
     array = []
-
     def setupUi(self, FrmHome):
         FrmHome.setObjectName("FrmHome")
         FrmHome.resize(1000, 553)
@@ -213,10 +211,15 @@ class Ui_FrmHome(object):
         self.window.show()
 
     def abrirSobre(self):
-        self.window = QtWidgets.QDialog()
-        self.ui = Ui_FrmSobre()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        msg = QMessageBox()
+        msg.setStyleSheet("background-color: rgb(0, 170, 255);")
+        msg.setWindowTitle("Sobre o Py Array Sort")
+        msg.setText("Clique em Show Details para ver detalhes sobre Py Array Sort")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        #Message Box com detalhes
+        msg.setDetailedText("Versão : 1.0.0" + "\n" + "Versão do Python : 3.4.3" + "\n" + "Versão do PyQt : 5.5.0" + "\n" + "Desenvolvido por : MrX")
+        msg.exec_()
 
     def sair(self):
         msg = QMessageBox()
@@ -238,7 +241,7 @@ class Ui_FrmHome(object):
     def addItemToArray(self):
          if self.txtNumero.text() != "":
 
-            if len(self.array) < 3: #tamanho máximo 10 itens
+            if len(self.array) < 10: #tamanho máximo 10 itens
 
                 self.array.append(self.txtNumero.text())
 
@@ -284,7 +287,12 @@ class Ui_FrmHome(object):
 
         self.lblArrayElementsOrdenado.setText("")
 
-        auxArray = list(self.array) #copiar array original para auxiliar para manter original inalterado
+        #Deevemos certificar que valores sejam inteiros
+        auxArray = []
+
+        for item in self.array:
+            auxArray.append(int(item))
+
 
         print("Array original")
         print(auxArray)
@@ -317,9 +325,9 @@ class Ui_FrmHome(object):
 
         for item in auxArray:
             if self.lblArrayElementsOrdenado.text() == "":
-                self.lblArrayElementsOrdenado.setText(item)
+                self.lblArrayElementsOrdenado.setText(str(item))
             else:
-                self.lblArrayElementsOrdenado.setText(self.lblArrayElementsOrdenado.text() + ", " + item)
+                self.lblArrayElementsOrdenado.setText(self.lblArrayElementsOrdenado.text() + ", " + str(item))
 
     def isNumber(self):
         try:
