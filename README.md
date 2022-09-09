@@ -17,8 +17,11 @@
 
 
 <h2>Deployment</h2>
+Necessário Python <a href="https://www.python.org/downloads/release/python-343/">3.4.3</a>
 
-<p>Download {path} <a href="https://github.com/MrX456/Cars_Performance_Charts/raw/main/_Deployment/cars_perfomance_charts_install.msi">here</a></p>
+Neceesário PyQt <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.5/">5.5</a>
+
+<p>Download <a href="#">aqui</a></p>
 
 
 <p align="center">Powered By MrX.</p
