@@ -21,7 +21,7 @@
 
 <p>Necessário PyQt <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.5/">5.5</a></p>
 
-<p>Download <a href="#">aqui</a></p>
+<p>Download <a href="https://github.com/MrX456/Py_Array_Sort/raw/master/_Deployment/dist.zip">aqui</a></p>
 
 
 <p align="center">Powered By MrX.</p
