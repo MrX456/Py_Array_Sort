@@ -11,12 +11,12 @@
 <p>Developed By : MrX</p>
 
 
-<h2>Documentation</h2>
+<h2>Documentação</h2>
 
-<p>Documentation{path} <a href="https://raw.githack.com/MrX456/Cars_Performance_Charts/main/_Documentation/C%23%20Doc/html/index.html">here</a></p>
+<p>Documentação{path} <a href="https://raw.githack.com/MrX456/Py_Array_Sort/master/_Documentation/Py%20Doc/html/index.html">aqui</a></p>
 
 
-<h2>Deployment</h2>
+<h2>Distribuição</h2>
 <p>Necessário Python <a href="https://www.python.org/downloads/release/python-343/">3.4.3</a></p>
 
 <p>Necessário PyQt <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.5/">5.5</a></p>
