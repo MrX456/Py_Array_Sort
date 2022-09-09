@@ -17,9 +17,9 @@
 
 
 <h2>Deployment</h2>
-Necessário Python <a href="https://www.python.org/downloads/release/python-343/">3.4.3</a>
+<p>Necessário Python <a href="https://www.python.org/downloads/release/python-343/">3.4.3</a></p>
 
-Neceesário PyQt <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.5/">5.5</a>
+<p>Necessário PyQt <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.5/">5.5</a></p>
 
 <p>Download <a href="#">aqui</a></p>
 
