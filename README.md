@@ -13,7 +13,7 @@
 
 <h2>Documentação</h2>
 
-<p>Documentação{path} <a href="https://raw.githack.com/MrX456/Py_Array_Sort/master/_Documentation/Py%20Doc/html/index.html">aqui</a></p>
+<p>Documentação <a href="https://raw.githack.com/MrX456/Py_Array_Sort/master/_Documentation/Py%20Doc/html/index.html">aqui</a></p>
 
 
 <h2>Distribuição</h2>
